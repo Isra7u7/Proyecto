@@ -24,7 +24,7 @@ class Departamento(models.Model):
 	NOMBRE_DEPARTAMENTO = models.CharField(max_length = 30)
 
 class Entidad(models.Model):
-	ID_ENTIDAD = models.AutoField(primary_key = True)
+	ID_ENTIDAD = models.CharField(max_length = 5, primary_key = True)
 	NOMBRE_ENTIDAD = models.CharField(max_length = 25)
 
 class Municipio(models.Model):
