@@ -19,6 +19,9 @@ class Beneficiario(models.Model):
 	RECEPTOR_BENEFICIARIO = models.BooleanField(choices = BOOL_CHOICES)
 	ENTIDAD_BENEFICIARIO = models.CharField(max_length = 25)
 
+	def __str__(self):
+		return self.NOMBRE_BENEFICIARIO
+
 class Departamento(models.Model):
 	ID_DEPARTAMENTO = models.CharField(max_length = 5, primary_key = True)
 	NOMBRE_DEPARTAMENTO = models.CharField(max_length = 30)

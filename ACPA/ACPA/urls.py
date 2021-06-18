@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from aplicaciones.Principal import views
-
+from aplicaciones.Principal.views import lista
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index),
+    path('lista/',views.lista),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

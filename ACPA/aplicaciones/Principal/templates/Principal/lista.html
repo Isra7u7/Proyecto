@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Listado de beneficiarios{% endblock titulo %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    {% block cuerpo %}
+    <h1>Listado de beneficiarios</h1>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+            <th>DUI Beneficiario</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Paquete recibido</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for beneficiario in beneficiarios %}
+            <tr>
+                <td>{{beneficiario.DUI_BENEFICIARIO}}</td>
+                <td>{{beneficiario.NOMBRE_BENEFICIARIO}}</td>
+                <td>{{beneficiario.APELLIDO_BENEFICIARIO}}</td>
+                <td>{{beneficiario.RECEPTOR_BENEFICIARIO}}</td>
+
+                <td><button type="button" class="btn btn-warning"><a href="{}">Editar</a></button>
+                    <button type="button" class="btn btn-danger"><a href="{}">Eliminar</a></a></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock cuerpo %}
+</body>
+</html>
