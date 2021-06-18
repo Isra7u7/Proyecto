@@ -20,3 +20,10 @@ def lista(request):
 	return render(request,"Principal/lista.html",contexto)
 
 
+def verBeneficiario(request):
+	return render(request,"Principal/verBene.html")
+
+
+
+
+

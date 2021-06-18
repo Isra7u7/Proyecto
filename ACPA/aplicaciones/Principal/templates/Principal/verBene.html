@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Registros de beneficiarios</title>
+    <title>Ver de beneficiarios</title>
 
     <!-- Custom fonts for this template-->
     <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -239,7 +239,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Tabla de datos de los beneficiarios</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Visualizacion de los beneficiarios del paquete PES</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -247,32 +247,78 @@
                                     <thead>
 
                                             {% block cuerpo %}
-    <h1>Listado de beneficiarios</h1>
-    <table class="table">
-        <thead class="thead-light">
-            <tr>
-            <th>DUI Beneficiario</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Paquete recibido</th>
-        </tr>
-        </thead>
-        <tbody>
-            {% for beneficiario in beneficiarios %}
-            <tr>
-                <td>{{beneficiario.DUI_BENEFICIARIO}}</td>
-                <td>{{beneficiario.NOMBRE_BENEFICIARIO}}</td>
-                <td>{{beneficiario.APELLIDO_BENEFICIARIO}}</td>
-                <td>{{beneficiario.RECEPTOR_BENEFICIARIO}}</td>
 
-                <td><button type="button" class="btn btn-danger" style="background: #4e73df; border:currentColor; "><a href="{}" style="color: white;">Ver</a></a></button>
-                    <button type="button" class="btn btn-warning" style="background: #858796; border:currentColor"><a href="{}" style="color: white;">Editar</a></button>
-                    <button type="button" class="btn btn-danger" style="background:  #ff5233; border:currentColor"><a href="{}" style="color: white;">Eliminar</a></a></button>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+
+                                                            <!-- Formulario de vista del beneficiario-->
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Datos generales del beneficiario</h1>
+                            </div>
+                            <form class="user">
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <h6 class="m-0 font-weight-bold text-primary"> DUI</h6>
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="DUI">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <h6 class="m-0 font-weight-bold text-primary"> Nombre</h6>
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="Nombre">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h6 class="m-0 font-weight-bold text-primary"> Apellido</h6>
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Apellido">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <h6 class="m-0 font-weight-bold text-primary"> Departamento</h6>
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Departamento">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h6 class="m-0 font-weight-bold text-primary"> Municipio</h6>
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleRepeatPassword" placeholder="Municipio">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h6 class="m-0 font-weight-bold text-primary"> Direccion</h6>
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Direccion">
+                                </div>
+                                                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <h6 class="m-0 font-weight-bold text-primary"> Beneficiario del paquete</h6>
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Recibio paquete">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h6 class="m-0 font-weight-bold text-primary"> Entidad que le entrego</h6>
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleRepeatPassword" placeholder="Entidad">
+                                    </div>
+                                </div>
+
+                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                    Regresar a la lista
+                                </a>
+                                <hr>
+                            </form>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
     {% endblock cuerpo %}
 
                                     </tbody>
