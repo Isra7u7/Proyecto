@@ -6,11 +6,14 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Registros de beneficiarios</title>
+    <title>Ver de beneficiarios</title>
 
     <!-- Custom fonts for this template-->
     <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -47,17 +50,16 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Registros en tiempo real</span></a>
-
-                    <!-- Divider -->
+                    <span>ACPA - Principal</span></a>
+            </li>
+            <!-- Divider -->
             <hr class="sidebar-divider">
-                                        <!- Boton de registrar beneficiario-->
+                                                    <!- Boton de registrar beneficiario-->
                 <div class="sidebar-card d-none d-lg-flex">
                 <a class="btn btn-success btn-sm" href="/crear_beneficiario">Registrar Beneficiario</a>
             </div>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -68,42 +70,6 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -140,7 +106,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item active">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="/lista">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Registros</span></a>
             </li>
@@ -240,7 +206,9 @@
                          {% else %}
                          <li>
                             <br>
-                            <a href="{% url 'login' %}">iniciar sesión</a>
+                            <a class="btn btn-success btn-sm" href="{% url 'login' %}">Iniciar sesión</a>
+                            <br>
+                            <br>
                          </li>
                          {% endif %}
 
@@ -255,7 +223,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Tabla de datos de los beneficiarios</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Visualizacion de los beneficiarios del paquete PES</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -263,33 +231,46 @@
                                     <thead>
 
                                             {% block cuerpo %}
-    <h1>Listado de beneficiarios</h1>
-    <table class="table">
-        <thead class="thead-light">
-            <tr>
-            <th>DUI Beneficiario</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Paquete recibido</th>
-            <th>Opciones</th>
-        </tr>
-        </thead>
-        <tbody>
-            {% for beneficiario in beneficiarios %}
-            <tr>
-                <td>{{beneficiario.DUI_BENEFICIARIO}}</td>
-                <td>{{beneficiario.NOMBRE_BENEFICIARIO}}</td>
-                <td>{{beneficiario.APELLIDO_BENEFICIARIO}}</td>
-                <td>{{beneficiario.RECEPTOR_BENEFICIARIO}}</td>
 
-                <td><button type="button" class="btn btn-danger" style="background: #4e73df; border:currentColor; "><a href="{}" style="color: white;">Ver</a></a></button>
-                    <button type="button" class="btn btn-warning" style="background: #858796; border:currentColor"><a href="{}" style="color: white;">Editar</a></button>
-                    <button type="button" class="btn btn-danger" style="background:  #ff5233; border:currentColor"><a href="{% url 'eliminar_beneficiario' beneficiario.ID_BENEFICIARIO %}" style="color: white;">Eliminar</a></a></button>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+
+                                                            <!-- Formulario de vista del beneficiario-->
+
+                <h2>Formulario Beneficiarios</h2>
+
+<form method="post" id="beneficiarioForm" data-municipios-url="{% url 'ajax_load_municipios' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_departamento").change(function () {
+        const url = $("#beneficiarioForm").attr("data-municipios-url");  // get the url of the `load_cities` view
+        const departamentoId = $(this).val();  // get the selected country ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,         // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'departamento_id': departamentoId       // add the country id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                $("#id_municipio").html(data);  // replace the contents of the city input with the data that came from the server
+                /*
+
+                let html_data = '<option value="">---------</option>';
+                data.forEach(function (city) {
+                    html_data += `<option value="${city.id}">${city.name}</option>`
+                });
+                console.log(html_data);
+                $("#id_city").html(html_data);
+
+                */
+            }
+        });
+
+    });
+</script>
     {% endblock cuerpo %}
 
                                     </tbody>
