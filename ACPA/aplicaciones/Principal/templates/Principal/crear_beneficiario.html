@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Ver de beneficiarios</title>
+    <title>Registrar beneficiarios</title>
 
     <!-- Custom fonts for this template-->
     <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -52,7 +52,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>ACPA - Principal</span></a>
+                    <span>Registros en tiempo real</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -63,11 +63,6 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
 
@@ -223,7 +218,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Visualizacion de los beneficiarios del paquete PES</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Ingrese sus datos correctamente si fue o no beneficiario del paquete PES</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -235,7 +230,7 @@
 
                                                             <!-- Formulario de vista del beneficiario-->
 
-                <h2>Formulario Beneficiarios</h2>
+                <h2>Formulario de registro de beneficiairios</h2>
 
 <form method="post" id="beneficiarioForm" data-municipios-url="{% url 'ajax_load_municipios' %}">
     {% csrf_token %}
