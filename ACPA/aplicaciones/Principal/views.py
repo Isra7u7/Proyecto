@@ -57,7 +57,19 @@ def eliminarBeneficiario(request, ID_BENEFICIARIO):
 	beneficiario.delete()
 	return redirect('/lista')
 
+#Funcion para editar
+def editarBeneficiario(request, ID_BENEFICIARIO):
+    beneficiario = Beneficiario.objects.filter(ID_BENEFICIARIO = ID_BENEFICIARIO).first()
+    form = BeneficiarioForm(instance = beneficiario)
+    return render(request, "Principal/editar_beneficiario.html", {"form":form,"beneficiario":beneficiario})
 
+def actualizarBeneficiario(request, ID_BENEFICIARIO):
+    beneficiario = Beneficiario.objects.get(pk = ID_BENEFICIARIO)
+    form = BeneficiarioForm(request.POST,instance=beneficiario)
+    if form.is_valid():
+        form.save()
+    beneficiario = Beneficiario.objects.all()
+    return render(request, "/lista.html",{"beneficiario":beneficiario})
 
 @login_required
 def verBeneficiario(request):

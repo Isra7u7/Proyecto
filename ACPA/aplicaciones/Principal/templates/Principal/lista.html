@@ -229,7 +229,11 @@
             <th>DUI Beneficiario</th>
             <th>Nombre</th>
             <th>Apellido</th>
+            <th>Departamento</th>
+            <th>Municipio</th>
             <th>Paquete recibido</th>
+            <th>Entidad que entrego</th>
+            <th>Cantidad</th>
             <th>Opciones</th>
         </tr>
         </thead>
@@ -239,11 +243,17 @@
                 <td>{{beneficiario.DUI_BENEFICIARIO}}</td>
                 <td>{{beneficiario.NOMBRE_BENEFICIARIO}}</td>
                 <td>{{beneficiario.APELLIDO_BENEFICIARIO}}</td>
+                <td>{{beneficiario.departamento}}</td>
+                <td>{{beneficiario.municipio}}</td>
                 <td>{{beneficiario.RECEPTOR_BENEFICIARIO}}</td>
+                <td>{{beneficiario.entidad}}</td>
+                <td>{{beneficiario.CANTIDAD}}</td>
 
-                <td><button type="button" class="btn btn-danger" style="background: #4e73df; border:currentColor; "><a href="{}" style="color: white;">Ver</a></a></button>
-                    <button type="button" class="btn btn-warning" style="background: #858796; border:currentColor"><a href="{}" style="color: white;">Editar</a></button>
-                    <button type="button" class="btn btn-danger" style="background:  #ff5233; border:currentColor"><a href="{% url 'eliminar_beneficiario' beneficiario.ID_BENEFICIARIO %}" style="color: white;">Eliminar</a></a></button>
+
+                    <td>
+                <!--<button type="button" class="btn btn-danger" style="background: #4e73df; border:currentColor; "><a href="{}" style="color: white;">Ver</a></a></button> -->
+                    <button type="button" class="btn btn-warning" style="background: #4e73df; border:currentColor"><a href="{% url 'editar_beneficiario' beneficiario.ID_BENEFICIARIO %}" style="color: white;">Editar</a></button>
+                    <button type="button" class="btn btn-danger" style="background: #858796; border:currentColor"><a href="{% url 'eliminar_beneficiario' beneficiario.ID_BENEFICIARIO %}" style="color: white;">Eliminar</a></a></button>
                 </td>
             </tr>
             {% endfor %}
