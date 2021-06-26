@@ -4,8 +4,10 @@ from .models import Beneficiario
 from .models import Departamento
 from .models import Entidad
 from .models import Municipio
-from django.contrib.auth.decorators import login_required
-from .forms import BeneficiarioForm
+from django.contrib.auth.decorators import login_required, permission_required
+from .forms import BeneficiarioForm, CustomUserForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -20,7 +22,6 @@ def lista(request):
 	}
 	return render(request,"Principal/lista.html",contexto)
 
-
 #Función de la pantalla de creación de beneficiarios 1
 def crearBeneficiario(request):
     form = BeneficiarioForm()
@@ -32,6 +33,7 @@ def crearBeneficiario(request):
     return render(request, 'Principal/crear_beneficiario.html', {'form': form})
 
 #Función de la pantalla de creación de beneficiarios 2
+
 def crearBeneficiario_update(request, pk):
     beneficiario = get_object_or_404(Beneficiario, pk=pk)
     form = BeneficiarioForm(instance=beneficiario)
@@ -68,6 +70,29 @@ def editarBeneficiario(request, ID_BENEFICIARIO):
 @login_required
 def verBeneficiario(request):
 	return render(request,"Principal/verBene.html")
+
+
+
+
+@login_required
+def registro_usuario(request):
+   data = { 'form' : CustomUserForm()
+   }
+      
+   if request.method == 'POST':
+       formulario = CustomUserForm(request.POST)
+       if formulario.is_valid():
+            formulario.save()
+           #autenticar 
+            username = formulario.cleaned_data['username']
+            password = formulario.cleaned_data['password1']
+            email = formulario.cleaned_data['email']
+            user = authenticate(username= username, password= password)
+            
+            return redirect(to='/')
+
+   return render(request,'registration/registrar.html', data)    
+
 
 
 

@@ -18,7 +18,7 @@ from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include
 from aplicaciones.Principal import views
-from aplicaciones.Principal.views import lista, verBeneficiario, eliminarBeneficiario, editarBeneficiario, crearBeneficiario
+from aplicaciones.Principal.views import lista, verBeneficiario, eliminarBeneficiario, editarBeneficiario, crearBeneficiario, registro_usuario
 
 
 
@@ -33,6 +33,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('eliminar_beneficiario/<int:ID_BENEFICIARIO>/', views.eliminarBeneficiario, name = 'eliminar_beneficiario'),
     path('editar_beneficiario/<int:ID_BENEFICIARIO>/', views.editarBeneficiario, name = 'editar_beneficiario'),
+    path('registro/', registro_usuario, name='registro_usuario'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
